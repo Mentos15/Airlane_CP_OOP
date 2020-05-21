@@ -1,0 +1,57 @@
+﻿<Page x:Class="AirLane.Pages.AllFlightsAdm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AirLane.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AllFlightsAdm">
+
+    <Grid >
+        <Button Style="{DynamicResource ReloadFlight}" Command = "{Binding Reload }"/>
+        <Button Style="{DynamicResource DeleteFlight}" Command = "{Binding Delete }"/>
+        <StackPanel DataContext="{Binding Models}">
+            <Grid Margin="5 100 10 0" Height="18" Background="WhiteSmoke" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Center" Grid.Column="0" Text="Дата вылета"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Column="1" Text="Дата прилета"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Column="2" Text="От куда"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Column="3" Text="Куда"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Column="4" Text="Компания"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Column="5" Text="Стоимость $"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Column="6" Text="Класс"/>
+                <TextBlock HorizontalAlignment="Center" Grid.Column="7" Text="Осталось мест"/>
+            </Grid>
+            <DataGrid HeadersVisibility="None" CanUserAddRows="False" CanUserDeleteRows="False" Margin="5 0 10 0" x:Name="dataGrid"  Grid.Column="1" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding DATE_FROM}"
+                                    Width="80"/>
+                    <DataGridTextColumn Binding="{Binding DATE_TO}"
+                                    Width="80"/>
+                    <DataGridTextColumn Binding="{Binding townFrom}"
+                                    Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding townTo}"
+                                    Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding company}"
+                                    Width="80" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding price}"
+                                    Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding clas}"
+                                    Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding count_of_seats}"
+                                    Width="*" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,59 @@
+﻿<Page x:Class="AirLane.Pages.AllOrders"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AirLane.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AllOrders">
+
+    <Grid  >
+        <Button Height="30" Width="100" Content="Удалить заказ" VerticalAlignment="Top" Margin="200  20 0 0 " Command="{Binding DeleteOrder}"/>
+        <Button Content="Обновить" Width="100" Height="30" VerticalAlignment="Top" Margin="-200 20 0 0" Command = "{Binding Reload }"/>
+        <StackPanel DataContext="{Binding Models}">
+            
+            <Grid Margin="5 100 5 0" Height="18" Background="WhiteSmoke" VerticalAlignment="Top" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="80"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock HorizontalAlignment="Center" Margin="0 0 0 5" Grid.Column="0" Text="Логин"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0 0 0 5"  Grid.Column="1" Text="Фамилия"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0 0 0 5"  Grid.Column="2" Text="Имя"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0 0 0 5"  Grid.Column="3" Text="Дата вылета"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0 0 0 5"  Grid.Column="4" Text="Дата прилета"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0 0 0 5"  Grid.Column="5" Text="От куда"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0 0 0 5"  Grid.Column="6" Text="Куда"/>
+                <TextBlock HorizontalAlignment="Center" Margin="0 0 0 5"  Grid.Column="7" Text="Стоимость"/>
+            </Grid>
+            <DataGrid HeadersVisibility="None" CanUserAddRows="False" CanUserDeleteRows="False" Margin="5, 0, 5, 5" x:Name="dataGrid2"  Grid.Column="1" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Binding="{Binding userLogName}"
+                                    Width="80"/>
+                    <DataGridTextColumn Binding="{Binding surName}"
+                                    Width="80"/>
+                    <DataGridTextColumn Binding="{Binding name}"
+                                    Width="80" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding date_from}"
+                                    Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding date_to}"
+                                    Width="100" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding town_from}"
+                                    Width="80" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding town_to}"
+                                    Width="80" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding price}"
+                                    Width="*" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        
+    </Grid>
+</Page>

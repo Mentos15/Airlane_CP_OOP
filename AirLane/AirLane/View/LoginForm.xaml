@@ -1,0 +1,24 @@
+﻿<Window x:Class="AirLane.View.LoginForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AirLane.View"
+        mc:Ignorable="d"
+        Title="LoginForm" Height="450" Width="800" Closing="Window_Closing" MaxWidth="800" MaxHeight="450" MinHeight="450" MinWidth="800">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\Виталий\2_KURS_2_SEM\CP_2.0\AirLane\AirLane\Img/reg2.jpg"></ImageBrush>
+        </Grid.Background>
+        <Button Content="Выйти" Width="100" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Style="{DynamicResource RegAndLog}" Command = "{Binding Exit }" Margin=" 0 20 70 0"/>
+        
+        <StackPanel DataContext="{ Binding Log}"  Width="305" Height="329" Style="{DynamicResource RegAndLogForm}">
+            <TextBlock Style="{DynamicResource LoginWord}"> Авторизация</TextBlock>
+            <TextBox Margin="0 50 0 0 "  Style="{StaticResource LoginTip}" Width="200" Text="{Binding LogName, UpdateSourceTrigger=PropertyChanged}"/>
+
+            <PasswordBox Style="{StaticResource PasswordTip}" Margin="20"  x:Name="UserPassword" Width="200"/>
+        </StackPanel>
+        <Button Height="30" Width="200" HorizontalAlignment="Center" Margin="100 70 100 0" Content="Забыл пароль" Style="{DynamicResource RegAndLog}" Command="{Binding SendPassword}"/>
+        <Button Height="30" Width="200" HorizontalAlignment="Center" Margin="100 140 100 0" Content="Войти" Command="{Binding Login}" Style="{DynamicResource RegAndLog}" CommandParameter="{Binding ElementName=UserPassword}"/>
+    </Grid>
+</Window>

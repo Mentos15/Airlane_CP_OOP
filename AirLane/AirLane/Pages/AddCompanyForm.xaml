@@ -1,0 +1,23 @@
+﻿<Page x:Class="AirLane.Pages.AddCompanyForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AirLane.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddCompanyForm">
+
+    <Grid>
+        <StackPanel Style="{DynamicResource Panel}" DataContext="{Binding Models}">
+            <TextBlock Style="{DynamicResource AddCompanyWord}" >Добавление компании</TextBlock>
+            <TextBox Style="{DynamicResource NameCompany}" Text="{Binding company_name, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Style="{DynamicResource cost_of_1km}" Text="{Binding cost_of_1km, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Style="{DynamicResource cost_of_business}" Text="{Binding cost_of_business, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Style="{DynamicResource cost_of_econom}" Text="{Binding cost_of_econom, UpdateSourceTrigger=PropertyChanged}"/>
+            
+        </StackPanel>
+        <Button Style="{DynamicResource AddCompany}" Command="{Binding AddCompany}"/>
+
+    </Grid>
+</Page>
